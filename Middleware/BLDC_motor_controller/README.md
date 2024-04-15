@@ -32,8 +32,7 @@ Port of driver information
 
 # Function for running motor 
 
-  void run_motor(int v){<br
-  >
+  void run_motor(int v){<br>
   digitalWrite(INT_SPEED, LOW);    - this port allow to controll by voltage signal from microcontroller <br>
   digitalWrite(rotation, LOW);     - this port decide the rotation of the motor, we can adjust high or low depend on our desire <br>
   digitalWrite(brk_pulse_in, LOW); - this port decide the state of the brake, when running, it should be LOW <br>
