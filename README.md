@@ -13,5 +13,5 @@ In middleware, we have the programs of the controller and ROS, which handle the 
 <br>
 
 ## Software
-Adjust later
+In software, we havew programs for artificial intelligence tasks and ROS creation and connection
 <br>
