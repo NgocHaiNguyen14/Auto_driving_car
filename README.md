@@ -2,14 +2,16 @@
 This repository is devoted for auto driving car project, which belong to SEFAS.
 The source code for the project include: Hardware, Middleware and Software<br>
 
-##Hardware
-Adjust later
+## Hardware
+In hardware folder, we have the datasheets of sensors and devices of the system
+    - Sensors: Camera 3D, LiDar sensor
+    - Motor: BLDC motor
 <br>
 
-##Middleware
-Adjust later
+## Middleware
+In middleware, we have the programs of the controller and ROS, which handle the tasks controll the hardware devices, connection and communication between parts of the system
 <br>
 
-##Software
+## Software
 Adjust later
 <br>
