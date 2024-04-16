@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "obsDetect_node = car_controller.obstacle_detection:main",
+            "camtrack_node = car_controller.subscriber:main"
         ],
     },
 )
