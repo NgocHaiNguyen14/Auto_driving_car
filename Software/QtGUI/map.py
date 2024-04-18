@@ -9,7 +9,7 @@ import geocoder
 class Map(QWidget):
     def __init__(self):
         super().__init__()
-        graph_file_path = "D:/Desktop/Map/hanoi_graph.graphml"
+        graph_file_path = "./hanoi_graph.graphml"
 
         G = create_or_load_graph(graph_file_path)
 
@@ -126,7 +126,7 @@ def plot_path(lat, long, origin_point, destination_point, initial_zoom):
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
 
     # Save the figure to an HTML file
-    fig.write_html("D:/Desktop/Qt GUI/path_map.html", config={"displayModeBar": True, "scrollZoom": True})
+    fig.write_html("./path_map.html", config={"displayModeBar": True, "scrollZoom": True})
 
     # fig.show(config={"displayModeBar": False, "scrollZoom": False}, auto_open=False)
         
@@ -158,7 +158,7 @@ def geocode_and_plot_path(G, org_name, dest_name):
             for j in range(len(l1)):
                 long.append(l1[j])
                 lat.append(l2[j])
-        with open("D:/Desktop/coordinates.txt", "w") as file:
+        with open("./coordinates.txt", "w") as file:
             file.write("Longitude, Latitude\n")
             for i in range(len(long)):
                 file.write(f"{long[i]}, {lat[i]}\n")

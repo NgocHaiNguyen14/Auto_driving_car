@@ -8,7 +8,7 @@ from ultralytics import YOLO
 import math
 
 
-model = YOLO("D:\Desktop\Qt GUI\yolov8l.pt")
+model = YOLO("./yolov8n.pt")
 
 classNames = ["person", "bicycle", "car", "motorbike", "aeroplane", "bus", "train", "truck", "boat",
               "traffic light", "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat",

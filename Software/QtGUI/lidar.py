@@ -38,7 +38,7 @@ class Obstacle(QWidget):
         # self.button.clicked.connect(self.generate_graph)
 
         self.count = 10
-        self.geo_path = read_geo(r"D:/Desktop/Qt GUI/coordinates.txt")
+        self.geo_path = read_geo(r"./coordinates.txt")
         self.start, self.end, self.count = start_end(self.count, self.geo_path)
 
     def update_and_generate_graph(self):

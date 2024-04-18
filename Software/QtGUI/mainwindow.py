@@ -39,7 +39,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(central_widget)
 
     def stat_table(self):
-        stat_file = "D:/Desktop/Qt GUI/StatTest.txt"
+        stat_file = "./QtGUI/StatTest.txt"
         stat = read_text(stat_file)
         self.sensor = Sensor(stat)
         self.sensor.show()
