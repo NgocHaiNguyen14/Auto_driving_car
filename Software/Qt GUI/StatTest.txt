@@ -1,0 +1,10 @@
+Battery Stat	Battery Temp	System Temp	Tire Pressure	Steering Angle	Front Distance 	Rear Distance
+100	40	35	32	6	1	0.9
+100	50	40	40	7	1.1	0.9
+99	60	45	35	8	1	1
+97	62	50	34	6	1.1	0.9
+96	65	55	33	7	1	0.9
+95	67	65	35	5	1.1	0.9
+90	70	68	36	9	0.9	1
+50	75	70	34	2	1.2	1
+20	80	75	37	3	1	1
