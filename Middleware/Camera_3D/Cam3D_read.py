@@ -1,7 +1,6 @@
 import ast
 import numpy as np
 import matplotlib.pyplot as plt
-import cv2
 
 # Path to your text file
 file_path = 'D:/Desktop/cam3d_data.txt'
@@ -31,15 +30,47 @@ def extract_metadata_and_data(file_path):
     
     return metadata, data_list
 
+# Convert the data list to 16-bit values considering little-endian format
+def convert_to_16bit(data):
+    pixel_values = []
+    for i in range(0, len(data), 2):
+        lower_byte = data[i]
+        upper_byte = data[i + 1]
+        # Combine bytes (little-endian)
+        pixel_value = lower_byte + (upper_byte << 8)
+        pixel_values.append(pixel_value)
+    return pixel_values
+
 # Get metadata and data list
 metadata, data_list = extract_metadata_and_data(file_path)
+# Convert data list
+pixel_values = convert_to_16bit(data_list)
+
+# # Debugging prints
+# print(f"Metadata: {metadata}")
+# print(f"Data list length: {len(data_list)}")
+# print(f"Expected size: {metadata['height'] * metadata['width']}")
+
+# # Check if the data list size matches the expected size
+# expected_size = metadata['height'] * metadata['width']
+# if len(data_list) != expected_size:
+#     print("Warning: The size of the data list does not match the expected dimensions from the metadata.")
+#     # Trim the data list to the expected size
+#     data_list = data_list[:expected_size]
+#     print(f"Trimmed data list length: {len(data_list)}")
 
 # Convert the data list to a NumPy array
-image_data = np.array(data_list, dtype=np.uint16).reshape(metadata['height']*2, metadata['width'])
+try:
+    image_data = np.array(pixel_values, dtype=np.uint16).reshape(metadata['height'], metadata['width'])
+    # Count the number of elements in the data list
+except ValueError as e:
+    print(f"Error reshaping data: {e}")
+    exit(1)
 
 # Display the image using matplotlib
-plt.imshow(image_data, cmap='Greens')
+plt.imshow(image_data, cmap='gray')
 plt.title('Depth Image')
 plt.axis('off')
 plt.show()
+
 
