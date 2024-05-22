@@ -1,3 +1,23 @@
+/*
+ * Driver's ports description for controlling block *
+1  - Black = GND 
+2  - Green = INT-SPEED - if ON, Speed setting using internal volume (LOAD/SPEED) in the margin of the driver. if OFF, Set speed using external volume.
+3  - Purple = Alarm out - the default signal is OFF, change to ON when the errors occurs.
+4  - Orange = Speed out - OUTPUT for calculating the number or rotation of the motor.
+5  - Gray = Alarm reset - Reset alarm to the default.
+6  - Brown = CW-CCW - set the rotation for the motor - clockwise or counter clockwise.
+7  - White = BRK & PULSE_IN ~ RUN and BRAKE - when turned ON, the motor starts. When turned OFF, the motor stop immediately.
+8  - Pink = Start/Stop -ON means the motor is ready to rotate. If it turns OFF while motor is running, it stops naturally.
+9  - Blue = GND
+10 - Yellow = Speed in - The input range of speed settinng is 0-5V proportional control.
+11 - Red = 5V for supplying DC power 
+
+*/
+/////////////////////////////////////////////////////////////////////////
+
+/* **** Declare pin for 4 motors *** */
+
+/* Motor 1 - left rear motor */
 const int INT_SPEED_1 = 22;
 const int alarm_out_1 = 24; //input in controller
 const int speed_out_1 = 26; //input in controller
@@ -37,8 +57,10 @@ const int brk_pulse_in_4 = 47;
 const int start_stop_4 = 49;
 const int pulse_out_4 = 5;
 
+////////////////////////////////////////////////////////////////////////
+
 void setup() {
-  /* * Set up pinMode * */
+  /* *** Set up pinMode *** */
   pinMode(INT_SPEED_1,OUTPUT); //input in the driver
   pinMode(alarm_out_1,INPUT); //output in the driver
   pinMode(speed_out_1,INPUT); //output in the driver
@@ -75,30 +97,48 @@ void setup() {
   pinMode(start_stop_4,OUTPUT); //input in the driver
   pinMode(pulse_out_4,OUTPUT); //input in the driver
   
-  /* * Set up appropriate output of each port for controlling * */
+  /* *** Set up appropriate output of each port for controlling *** */
   
-  digitalWrite(INT_SPEED_1, LOW); // Set speed using external volume
+  digitalWrite(INT_SPEED_1, HIGH); // Set speed using external volume
   digitalWrite(rotation_1, LOW); // set the motor rotation is clockwise
   digitalWrite(brk_pulse_in_1, LOW); // int the dataset say ON(L), it may be LOW, just try and fix
   digitalWrite(start_stop_1, LOW); // the same with RUN/BRAKE
 
-  digitalWrite(INT_SPEED_2, LOW); // Set speed using external volume
+  digitalWrite(INT_SPEED_2, HIGH); // Set speed using external volume
   digitalWrite(rotation_2, LOW); // set the motor rotation is clockwise
   digitalWrite(brk_pulse_in_2, LOW); // int the dataset say ON(L), it may be LOW, just try and fix
   digitalWrite(start_stop_2, LOW); // the same with RUN/BRAKE
 
-  digitalWrite(INT_SPEED_3, LOW); // Set speed using external volume
+  digitalWrite(INT_SPEED_3, HIGH); // Set speed using external volume
   digitalWrite(rotation_3, LOW); // set the motor rotation is clockwise
   digitalWrite(brk_pulse_in_3, LOW); // int the dataset say ON(L), it may be LOW, just try and fix
   digitalWrite(start_stop_3, LOW); // the same with RUN/BRAKE
 
-  digitalWrite(INT_SPEED_4, LOW); // Set speed using external volume
+  digitalWrite(INT_SPEED_4, HIGH); // Set speed using external volume
   digitalWrite(rotation_4, LOW); // set the motor rotation is clockwise
   digitalWrite(brk_pulse_in_4, LOW); // int the dataset say ON(L), it may be LOW, just try and fix
   digitalWrite(start_stop_4, LOW); // the same with RUN/BRAKE
+  
+  
+  /* 
+     ***Notes for the sate of the motor while turning ON/OFF Start/stop and Brk_pulse_in*** 
+       _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+      | Start/Stop | Run/Brake |        Driving status        |
+       _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+      |     ON     |     ON    | Normal operation             | 
+      |     ON     |     OFF   | Stop immediately             |
+      |     OFF    |     ON    | Stop naturally without brake |
+      |     OFF    |     OFF   | No activation of motor       |
+       - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+   => For the third row, we can understand that RUN/BRAKE still be on, it means that BRAKE is not activated.
+   So that the vehicle stop naturally based on inertia of the motor and the environment.
+  */
+
+  // Special note for Run/Brake connection, port BRK&PULSE_IN need to be connected to ground
+  
 }
 
-/* * Run withh variable v (velocity) (from 0-255) * */
+/* *** Run withh variable v (velocity) (from 0-255) *** */
 void run_motor_1(int v){
   digitalWrite(INT_SPEED_1, LOW); 
   digitalWrite(rotation_1, LOW); 
@@ -116,22 +156,22 @@ void run_motor_2(int v){
 }
 
 void run_motor_3(int v){
-  digitalWrite(INT_SPEED_3, LOW); 
-  digitalWrite(rotation_3, LOW); 
+  digitalWrite(INT_SPEED_3, HIGH); 
+  digitalWrite(rotation_3, HIGH); 
   digitalWrite(brk_pulse_in_3, LOW); 
   digitalWrite(start_stop_3, LOW); 
   analogWrite(pulse_out_3,v);
 }
 
 void run_motor_4(int v){
-  digitalWrite(INT_SPEED_4, LOW); 
+  digitalWrite(INT_SPEED_4, HIGH); 
   digitalWrite(rotation_4, LOW); 
   digitalWrite(brk_pulse_in_4, LOW); 
   digitalWrite(start_stop_4, LOW); 
   analogWrite(pulse_out_4,v);
 }
 
-/* ** Stop with brake * */
+/* **** Stop with brake *** */
 
 void stop_brake(){ // need to be checked later
   digitalWrite(brk_pulse_in_1, HIGH);
@@ -172,12 +212,13 @@ void loop() {
   delay(5000);
   stop_without_brake();
   delay(5000);*/
-  int a = 255;
+  int a = 20;
   run_motor_1(a);
   run_motor_2(a);
   run_motor_3(a);
   run_motor_4(a);
-  delay(10000);
-  //stop_without_brake();
-  delay(5000);
+  delay(8000);
+  stop_without_brake();
+  //stop_brake();
+  delay(3000);
 }
