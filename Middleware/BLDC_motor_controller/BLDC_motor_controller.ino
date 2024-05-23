@@ -204,6 +204,21 @@ void stop_without_brake(){
   analogWrite(pulse_out_4,0);
 }
 
+void stop_immediately(){
+  digitalWrite(brk_pulse_in_1, LOW);
+  digitalWrite(start_stop_1, LOW);
+  analogWrite(pulse_out_1,0);
+  digitalWrite(brk_pulse_in_2, LOW); 
+  digitalWrite(start_stop_2, LOW); 
+  analogWrite(pulse_out_2,0);
+  digitalWrite(brk_pulse_in_3, LOW); 
+  digitalWrite(start_stop_3, LOW); 
+  analogWrite(pulse_out_3,0);
+  digitalWrite(brk_pulse_in_4, LOW); 
+  digitalWrite(start_stop_4, LOW); 
+  analogWrite(pulse_out_4,0);
+}
+
 void loop() {
   /*run_motor_1(70);
   run_motor_2(70);
@@ -212,13 +227,14 @@ void loop() {
   delay(5000);
   stop_without_brake();
   delay(5000);*/
-  int a = 20;
+  int a = 120;
   run_motor_1(a);
   run_motor_2(a);
   run_motor_3(a);
   run_motor_4(a);
   delay(8000);
-  stop_without_brake();
+  //stop_without_brake();
   //stop_brake();
+  //stop_immediately();
   delay(3000);
 }
