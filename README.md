@@ -25,4 +25,4 @@ In software, we have programs for artificial intelligence tasks. <br>
 <br>
 
 
-**Note**: All programs are completing and updating
+**Note**: All programs have been completing and updating
