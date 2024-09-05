@@ -2,7 +2,7 @@
 
 ## Installation
 1. Install Ubuntu 20.04
-2. Install ROS noetic
+2. Install ROS noetic  
 link: http://wiki.ros.org/noetic/Installation/Ubuntu
 2.1 Setup your sources.list
 <pre>sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'</pre>
