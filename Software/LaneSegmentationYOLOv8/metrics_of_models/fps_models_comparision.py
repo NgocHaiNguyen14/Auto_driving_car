@@ -3,10 +3,10 @@ import time
 from ultralytics import YOLO
 
 # Paths to the model and video file
-#model_path = '/home/sefas/Auto_driving_car/Software/LaneSegmentation/models/yolov8l_seg/weights/best.pt'
-#model_path = '/home/sefas/Auto_driving_car/Software/LaneSegmentation/models/yolov8m_seg/weights/best.pt'
-model_path = '/home/sefas/Auto_driving_car/Software/LaneSegmentation/models/yolov8s_seg/weights/best.pt'
-video_path = '/home/sefas/Auto_driving_car/Software/LaneSegmentation/VID_370.MOV'
+#model_path = '/home/sefas/Auto_driving_car/Software/LaneSegmentationYOLOv8//models/yolov8l_seg/weights/best.pt'
+#model_path = '/home/sefas/Auto_driving_car/Software/LaneSegmentationYOLOv8//models/yolov8m_seg/weights/best.pt'
+model_path = '/home/sefas/Auto_driving_car/Software/LaneSegmentationYOLOv8/models/yolov8s_seg/weights/best.pt'
+video_path = '/home/sefas/Auto_driving_car/Software/LaneSegmentationYOLOv8//VID_370.MOV'
 
 # Load the YOLOv8 segmentation model
 model = YOLO(model_path)
