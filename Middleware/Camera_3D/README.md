@@ -2,7 +2,7 @@
 
 ## Installation
 Clone sick visionary repo to catkin workspace
-<pre>cd~/<workspace_name>/src
+<pre>cd~/"<workspace_name>"/src
   git clone <REPO_URL></pre>
 
 ## Operation
