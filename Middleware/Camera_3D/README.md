@@ -1,11 +1,14 @@
 # Camera 3D
-1. ROS run cmd
 
+## Installation
+Clone sick visionary repo to catkin workspace
+<pre>cd~/<workspace_name>/src
+  git clone <REPO_URL></pre>
+
+## Operation
+
+1. ROS run cmd
 <pre>roslaunch sick_visionary_ros sick_visionary-t_mini.lauch</pre>
 
-## Heading 1
-Content here
-
-## Heading 2
-
-Content here
+2. Visialize the results in RViz
+<pre>rosrun rviz rviz</pre>
