@@ -1,0 +1,4 @@
+Large FPS: 28.38, Average Inference Time per Frame: 0.0246 seconds
+Medium FPS: 37.52, Average Inference Time per Frame: 0.0161 seconds
+FPS: 46.59, Average Inference Time per Frame: 0.0108 seconds
+

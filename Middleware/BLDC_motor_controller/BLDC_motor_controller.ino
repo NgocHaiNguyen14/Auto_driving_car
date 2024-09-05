@@ -227,7 +227,7 @@ void loop() {
   delay(5000);
   stop_without_brake();
   delay(5000);*/
-  int a = 120;
+  int a = 20;
   run_motor_1(a);
   run_motor_2(a);
   run_motor_3(a);
@@ -235,6 +235,6 @@ void loop() {
   delay(8000);
   //stop_without_brake();
   //stop_brake();
-  //stop_immediately();
+  stop_immediately();
   delay(3000);
 }

@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Path to your text file
-file_path = 'D:/Desktop/cam3d_data.txt'
+file_path = '~/sefas/cam3d_data(start).txt'
 
 # Function to extract metadata and the data list
 def extract_metadata_and_data(file_path):

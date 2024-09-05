@@ -1,0 +1,8 @@
+venv/
+models/
+dataset/
+metrics_of_models/model_metrics_small.csv
+metrics_of_models/model_metrics_medium.csv
+metrics_of_models/model_metrics_large.csv
+VID_370.MOV
+/home/sefas/Auto_driving_car/runs
