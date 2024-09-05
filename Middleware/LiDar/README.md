@@ -1,8 +1,9 @@
-# Camera 3D
+# LiDAR
 
-## Heading 1
-Content here
+## Installation
+<pre>sudo apt update
+sudo apt-get install ros-noetic-sick-scan-xd</pre>
 
-## Heading 2
+## Operation
 
 Content here
