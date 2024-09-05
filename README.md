@@ -1,7 +1,7 @@
 # Auto_driving_car
 ## Introduction
 This repository is devoted for auto driving car project, which belong to SEFAS.
-The source code for the project include: Hardware, Middleware and Software.<br>
+The source code for the project include: Simulation, Hardware, Middleware and Software.<br>
 
 ## Hardware
 In hardware folder, we have the datasheets of sensors and devices of the system.<br>
@@ -25,4 +25,4 @@ In software, we have programs for artificial intelligence tasks. <br>
 <br>
 
 
-**Note**: All programs are completing and updating
+**Note**: All programs have been completing and updating
