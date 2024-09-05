@@ -6,4 +6,4 @@ sudo apt-get install ros-noetic-sick-scan-xd</pre>
 
 ## Operation
 
-Content here
+<pre>roslaunch sick_scan_xd sick_lms_1xx.launch </pre>
