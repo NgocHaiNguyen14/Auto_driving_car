@@ -2,8 +2,8 @@
 
 ## Installation
 Clone sick visionary repo to catkin workspace
-<pre>cd~/WORKSPACE_NAME/src
-  git clone "REPO_URL" #https://github.com/SICKAG/sick_visionary_ros.git </pre>
+<pre>cd~/autonomous_car/src
+git clone https://github.com/SICKAG/sick_visionary_ros.git #clone Repo URL </pre>
 
 ## Operation
 
