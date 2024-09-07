@@ -6,7 +6,7 @@ from ultralytics import YOLO
 model = YOLO('/home/sefas/Auto_driving_car/Software/LaneSegmentationYOLOv8/models/yolov8l_seg/weights/best.pt')
 
 # Load the image
-image_path = 'gen_annotations/01545.png'
+image_path = 'gen_annotations/01277.png'
 image = cv2.imread(image_path)
 
 # Get image dimensions

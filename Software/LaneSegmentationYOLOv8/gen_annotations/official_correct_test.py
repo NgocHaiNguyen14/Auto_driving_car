@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # File paths
-image_path = 'gen_annotations/01545.png'
-label_path = 'gen_annotations/yolo_output/01545.txt'
+image_path = 'gen_annotations/01277.png'
+label_path = 'gen_annotations/yolo_output/01277.txt'
 
 colors = {
     0: (255, 0, 0),  # Red for lane

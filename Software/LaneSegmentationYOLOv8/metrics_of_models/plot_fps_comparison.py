@@ -1,9 +1,9 @@
 import matplotlib.pyplot as plt
 
 # Data for the models
-models = ['yolo-large', 'yolo-medium', 'yolo-small']  # Names of the models
-fps = [28, 37, 46]  # FPS for each model
-avg_inference_times = [0.0246, 0.0161, 0.0108]  # Average inference times in seconds
+models = ['yolo-large', 'yolo-medium', 'yolo-small','Mask-RCNN']  # Names of the models
+fps = [28, 37, 46,21]  # FPS for each model
+avg_inference_times = [0.0346, 0.0261, 0.0208, 0.0461]  # Average inference times in seconds
 
 # Create a figure and axis
 fig, ax1 = plt.subplots()
@@ -26,6 +26,7 @@ color = 'tab:red'
 ax2.set_ylabel('Average Inference Time (s)', color=color)
 ax2.plot(models, avg_inference_times, color=color, marker='o', label='Average Inference Time (s)')
 ax2.tick_params(axis='y', labelcolor=color)
+ax2.set_ylim(0, max(avg_inference_times) + 0.01)
 
 # Add titles and labels
 plt.title('Comparison of YOLOv8 Models Performance')

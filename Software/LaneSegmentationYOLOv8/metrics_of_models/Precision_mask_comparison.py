@@ -17,6 +17,8 @@ df3 = pd.read_csv(file3)
 mask_p1 = df1['Mask(P)']
 mask_p2 = df2['Mask(P)']
 mask_p3 = df3['Mask(P)']
+mask_p4 = [0.9, 0.881, 0.892, 0.925] # from eval mask RCNN
+
 
 # Extract classes to align the Mask(P) values for comparison
 classes = df1['Class']  # assuming all files have the same classes in the same order
@@ -27,6 +29,8 @@ plt.figure(figsize=(12, 6))
 plt.plot(classes, mask_p1, marker='o', linestyle='-', label='yolov8-large')
 plt.plot(classes, mask_p2, marker='s', linestyle='--', label='yolov8-medium')
 plt.plot(classes, mask_p3, marker='^', linestyle='-.', label='yolov8-small')
+plt.plot(classes, mask_p4, marker='x', linestyle='-.', label='Mask_RCNN')
+
 
 plt.xlabel('Class')
 plt.ylabel('Mask(Precision)')
