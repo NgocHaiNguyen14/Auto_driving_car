@@ -72,6 +72,6 @@ while cap.isOpened():
 # Release the video capture and writers
 cap.release()
 lane_writer.release()
-marking_writer.release()
+vehicles_writer.release()
 cv2.destroyAllWindows()
 
