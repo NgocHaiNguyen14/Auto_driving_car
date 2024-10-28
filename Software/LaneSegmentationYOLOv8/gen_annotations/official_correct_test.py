@@ -3,8 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # File paths
-image_path = 'gen_annotations/01277.png'
-label_path = 'gen_annotations/yolo_output/01277.txt'
+image_path = 'frame_000000.png'
+label_path = 'frame_000000.txt'
+print(image_path)
 
 colors = {
     0: (255, 0, 0),  # Red for lane
@@ -16,7 +17,7 @@ image = cv2.imread(image_path)
 if image is None:
     raise FileNotFoundError(f"Image {image_path} not found")
 
-# Resize the image to 640x360
+# Resize the image to 640x384
 label_width = 640
 label_height = 384
 image_resized = cv2.resize(image, (label_width, label_height))

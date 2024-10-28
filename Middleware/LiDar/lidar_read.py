@@ -41,7 +41,7 @@ def read_data_from_file(file_path):
     return data
 
 # Read data from the text file
-file_path = 'D:\Desktop\lidar_data_cloud.txt'
+file_path = '/home/sefas/Auto_driving_car/Middleware/LiDar/lidar_data_cloud.txt'
 data = read_data_from_file(file_path)
 
 # PointCloud2 parameters

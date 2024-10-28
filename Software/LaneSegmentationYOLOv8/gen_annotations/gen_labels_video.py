@@ -63,8 +63,8 @@ while cap.isOpened():
                             x, y = point[0]
                             
                             # Normalize the coordinates (0-1) based on video frame dimensions
-                            norm_x = x / frame_width
-                            norm_y = y / frame_height
+                            norm_x = x / 640
+                            norm_y = y / 384
                             
                             polygon_points.extend([norm_x, norm_y])  # Flatten the list
 
