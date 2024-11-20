@@ -3,7 +3,7 @@ import numpy as np
 from ultralytics import YOLO
 
 # Load the YOLOv8 model
-model = YOLO('epoch100.pt')
+model = YOLO('/home/sefas/Auto_driving_car/Software/LaneSegmentationYOLOv8/models/yolov8m_seg/weights/best.pt')
 
 # Define the polygon points for drawing on the image
 polygon1_points = np.array([[220, 320], [364, 320], [338, 285], [246, 285]], dtype=np.int32)  # Red
@@ -12,7 +12,7 @@ polygon3_points = np.array([[313, 250], [332, 250], [384, 320], [365, 320]], dty
 polygon4_points = np.array([[271, 250], [252, 250], [200, 320], [221, 320]], dtype=np.int32)  # Yellow
 
 # Load the video
-cap = cv2.VideoCapture('test.MOV')
+cap = cv2.VideoCapture('/home/sefas/Auto_driving_car/Software/LaneSegmentationYOLOv8/VID_370.MOV')
 
 # Get video properties for setting up the VideoWriter
 frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))

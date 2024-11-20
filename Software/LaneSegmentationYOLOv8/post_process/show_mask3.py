@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from ultralytics import YOLO
 
 # Load the YOLOv8 model
-model = YOLO('epoch100.pt')
+model = YOLO('/home/sefas/Auto_driving_car/Software/LaneSegmentationYOLOv8/models/yolov8m_seg/weights/epoch100.pt')
 
 # Perform inference on the image
 results = model('test.png')

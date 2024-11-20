@@ -12,3 +12,5 @@ Load data to text file - realtime
 Datapoint virtualization by Rviz
 <rviz>
 Then select "Add" and choose "By topic" / "cloud" / "PointCloud2"
+
+**Remember to connect Ethernet of Lidar to CH2 of the AdvancedTech**
