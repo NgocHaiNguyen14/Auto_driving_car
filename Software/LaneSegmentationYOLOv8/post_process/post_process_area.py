@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from ultralytics import YOLO
 
 # Load the YOLOv8 model
-model = YOLO('epoch100.pt')
+model = YOLO('../models/yolov8s_seg/weights/best.pt')
 
 # Perform inference on the image
 results = model('test.png')
