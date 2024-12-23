@@ -99,7 +99,7 @@ void setup() {
   
   /* *** Set up appropriate output of each port for controlling *** */
   
-  digitalWrite(INT_SPEED_1, HIGH); // Set speed using external volume
+  digitalWrite(INT_SPEED_1,LOW); // Set speed using external volume
   digitalWrite(rotation_1, LOW); // set the motor rotation is clockwise
   digitalWrite(brk_pulse_in_1, LOW); // int the dataset say ON(L), it may be LOW, just try and fix
   digitalWrite(start_stop_1, LOW); // the same with RUN/BRAKE
@@ -149,7 +149,7 @@ void run_motor_1(int v){
 
 void run_motor_2(int v){
   digitalWrite(INT_SPEED_2, LOW); 
-  digitalWrite(rotation_2, LOW);
+  digitalWrite(rotation_2, HIGH);
   digitalWrite(brk_pulse_in_2, LOW); 
   digitalWrite(start_stop_2, LOW); 
   analogWrite(pulse_out_2,v);
@@ -223,18 +223,19 @@ void loop() {
   /*run_motor_1(70);
   run_motor_2(70);
   run_motor_3(70);
+  
   run_motor_4(70);
   delay(5000);
   stop_without_brake();
   delay(5000);*/
-  int a = 20;
+  int a = 50;
   run_motor_1(a);
   run_motor_2(a);
   run_motor_3(a);
   run_motor_4(a);
-  delay(8000);
+  //delay(8000);
   //stop_without_brake();
   //stop_brake();
-  stop_immediately();
-  delay(3000);
+  //stop_immediately();
+  //delay(3000);
 }
