@@ -1,1 +1,3 @@
-# code of AI and other part relating to software be here
+# Lane Detection ...
+# LaneSegmentationYOLOv8: This folder contains code for lane segmenation and postprocess
+# QtGUI: GUI for AV
