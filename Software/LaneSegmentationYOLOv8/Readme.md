@@ -1,9 +1,7 @@
 # Lane Segmentation
 ## Directory
-    - dataset <br>
-    - gen_annotation: Self-supervised learning folder <br>
-    - metrics_of_models: Calculate tge model's performance<br>
-    - models: Contain our models <br>
-    - post_process<br>
-    - results <br>
-    - venv: virtual environment <br>
+    - dataset 
+    - gen_annotation: Self-supervised learning folder: includes "gen_labels_video.py" to generate label from video, "gen_labels.py" for image.
+    - metrics_of_models: Visualize the model's performance
+    - post_process: count_pixels_areas.py(count number of pixel in pre-determined area), post_process_area.py (post process with segmentation), ...mask.py(show masks from postprocess)
+    - results: Images of training and testing results
