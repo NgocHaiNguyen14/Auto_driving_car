@@ -157,7 +157,7 @@ void run_motor_2(int v){
 
 void run_motor_3(int v){
   digitalWrite(INT_SPEED_3, HIGH); 
-  digitalWrite(rotation_3, HIGH); 
+  digitalWrite(rotation_3, LOW); 
   digitalWrite(brk_pulse_in_3, LOW); 
   digitalWrite(start_stop_3, LOW); 
   analogWrite(pulse_out_3,v);
@@ -165,7 +165,7 @@ void run_motor_3(int v){
 
 void run_motor_4(int v){
   digitalWrite(INT_SPEED_4, HIGH); 
-  digitalWrite(rotation_4, LOW); 
+  digitalWrite(rotation_4, HIGH); 
   digitalWrite(brk_pulse_in_4, LOW); 
   digitalWrite(start_stop_4, LOW); 
   analogWrite(pulse_out_4,v);
@@ -219,7 +219,42 @@ void stop_immediately(){
   analogWrite(pulse_out_4,0);
 }
 
+void speedup(int a){
+  for (int i = 0; i < a; i ++)
+  {
+    run_motor_1(a);
+  run_motor_2(a);
+  run_motor_3(a);
+  run_motor_4(a);
+  delay(70);
+  }
+  
+  run_motor_1(a);
+  run_motor_2(a);
+  run_motor_3(a);
+  run_motor_4(a);
+  delay(5000);
+  
+}
+void slowdown(int a){
+  for (int i = a; i >0 ; i --)
+  {
+    run_motor_1(a);
+  run_motor_2(a);
+  run_motor_3(a);
+  run_motor_4(a);
+  delay(50);
+  }
+   run_motor_1(0);
+  run_motor_2(0);
+  run_motor_3(0);
+  run_motor_4(0);
+  delay(10000);
+
+}
 void loop() {
+  speedup(150);
+  slowdown(150);
   /*run_motor_1(70);
   run_motor_2(70);
   run_motor_3(70);
@@ -228,11 +263,12 @@ void loop() {
   delay(5000);
   stop_without_brake();
   delay(5000);*/
-  int a = 50;
+  /*
+  int a = 20;
   run_motor_1(a);
   run_motor_2(a);
   run_motor_3(a);
-  run_motor_4(a);
+  run_motor_4(a);*/
   //delay(8000);
   //stop_without_brake();
   //stop_brake();

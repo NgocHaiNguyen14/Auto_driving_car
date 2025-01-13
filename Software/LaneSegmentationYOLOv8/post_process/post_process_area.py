@@ -7,7 +7,7 @@ from ultralytics import YOLO
 model = YOLO('../models/yolov8s_seg/weights/best.pt')
 
 # Perform inference on the image
-results = model('test.png')
+results = model('02093.png')
 
 # Extract the segmentation masks
 masks = results[0].masks.data.cpu().numpy()
@@ -33,7 +33,7 @@ polygon3_points = np.array([[313, 250], [332, 250], [384, 320], [365, 320]], dty
 polygon4_points = np.array([[271, 250], [252, 250], [200, 320], [221, 320]], dtype=np.int32)  # Yellow
 
 # Load the original image
-image = cv2.imread('test.png')
+image = cv2.imread('02093.png')
 image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert to RGB for display
 
 # Resize the image to 640x384
