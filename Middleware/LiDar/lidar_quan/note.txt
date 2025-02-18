@@ -1,9 +1,0 @@
-* File Get_Point.py
-Tập tin này lấy các điểm từ cảm biến lidar sử dụng thư viện sensor_msgs. Dữ liệu sẽ được đẩy liên tục vào hàng đợi (queue) với tần suất 50Hz (0.02 giây mỗi lần).
-
-* File Visualize.py
-Tập tin này lấy các điểm từ cảm biến lidar sử dụng thư viện sensor_msgs. Dữ liệu sẽ được plot (0.06 giây mỗi lần)
-
-* File Point_with_distance.py
-Tập tin này lấy các điểm từ cảm biến lidar sử dụng thư viện sensor_msgs. Dữ liệu sẽ được đẩy liên tục vào hàng đợi (queue) với tần suất 50Hz (0.02 giây mỗi lần).
-Khác với tập tin đầu tiên, dữ liệu sẽ được tính thêm khoảng cách (sqrt(x^2 + y^2)). Thời gian thêm cột khoảng cách là ~0.00017 giây.
