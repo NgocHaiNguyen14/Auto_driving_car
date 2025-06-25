@@ -1,14 +1,14 @@
 from ultralytics import YOLO
 import cv2
 import math
-
+import visualize
 # Hàm tính góc từ bounding box
 def bbox_to_angle2(x_min, x_max, W, HFOV):
     theta1 = 271 + HFOV - 2 * x_min * HFOV / W
     theta2 = 271 + HFOV - 2 * x_max * HFOV / W
     return theta1, theta2
 
-def bbox_to_angle(x_min, x_max, W, HFOV):
+def bbox_to_angle(x_min, x_max, W = 800, HFOV = 55):
     # Đổi HFOV sang radian
     HFOV_radians = math.radians(HFOV)
 
@@ -27,33 +27,23 @@ def bbox_to_angle(x_min, x_max, W, HFOV):
     theta2 = 271 - 2*math.degrees(math.atan(x2 / f))  # Đổi từ radian sang độ
 
     return theta1, theta2
-W = 1920
-HFOV = 66.7 
+import math
 
-model = YOLO("yolov8n.pt").to("cuda")
+def point_to_distance(x, y, image_width, image_height, hfov_deg, vfov_deg, camera_height):
 
-image_path = "20_11_2.jpg"
-image = cv2.imread(image_path)
+    # Chuyển đổi góc nhìn từ độ sang radian
+    hfov_rad = math.radians(hfov_deg)
+    vfov_rad = math.radians(vfov_deg)
 
-results = model(image)
+    # Tính toán góc ngang (theta_x) và góc dọc (theta_y)
+    theta_x = math.atan((x - image_width / 2) / (image_width / 2 / math.tan(hfov_rad / 2)))
+    theta_y = math.atan((y - image_height / 2) / (image_height / 2 / math.tan(vfov_rad / 2)))
 
-if len(results):
-    for box in results[0].boxes.xyxy:
-        # Lấy tọa độ bounding box (x_min, y_min, x_max, y_max)
-        x_min, y_min, x_max, y_max = map(int, box.cpu().numpy())
+    # Tính khoảng cách ngang (D_x) và khoảng cách dọc (D_y)
+    D_x = camera_height * math.tan(theta_x)
+    D_y = camera_height * math.tan(theta_y)
 
-        # Vẽ bounding box
-        cv2.rectangle(image, (x_min, y_min), (x_max, y_max), (0, 255, 0), 2)
+    # Tính khoảng cách thực tế (D) bằng công thức Pythagoras
+    D = math.sqrt(D_x**2 + D_y**2)
 
-        theta1, theta2 = bbox_to_angle(x_min, x_max, W, HFOV)
-
-        # Ghi thông tin lên bounding box
-        text = f"Angle: {theta1:.2f}, {theta2:.2f}"
-        cv2.putText(image, text, (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-
-    # Hiển thị ảnh
-    cv2.imshow("Detected Image", image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-else:
-    print("Không tìm thấy bounding box nào.")
+    return D
