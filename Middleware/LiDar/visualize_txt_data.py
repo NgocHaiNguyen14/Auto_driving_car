@@ -3,7 +3,7 @@ import numpy as np
 import ast
 
 # Read the data file
-with open('lidar_datatxt', 'r') as f:
+with open('lidar_data.txt', 'r') as f:
     content = f.read()
 
 # Extract angle and range info
