@@ -55,7 +55,19 @@ def save_data():
     np.save(lidar_path, lidar_copy)
 
     rospy.loginfo(f"Saved {img_path} and {lidar_path}")
+
+    # --- Extra: check LiDAR rays < 0.2 m ---
+    distances = np.sqrt(lidar_copy[:,0]**2 + lidar_copy[:,1]**2)
+    close_idx = np.where(distances < 0.2)[0]
+    if close_idx.size > 0:
+        rospy.loginfo("LiDAR rays < 0.2 m:")
+        for i in close_idx:
+            rospy.loginfo(f"Ray {i}: ({lidar_copy[i,0]:.3f}, {lidar_copy[i,1]:.3f}), Dist={distances[i]:.3f} m")
+    else:
+        rospy.loginfo("No LiDAR rays closer than 0.2 m")
+
     file_counter += 1
+
 
 def keyboard_listener():
     while not rospy.is_shutdown():
